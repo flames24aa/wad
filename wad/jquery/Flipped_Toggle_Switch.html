@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Feedback Form</title>
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <style>
+    .question {
+      margin-bottom: 20px; /* Adjust the margin bottom as needed */
+    }
+  </style>
+</head>
+<body>
+
+<div data-role="page" id="home">
+  <div data-role="header">
+    <h1>Feedback Form</h1>
+  </div>
+
+  <div data-role="content">
+    <form id="feedback-form">
+        <div data-role="fieldcontain" class="question">
+
+            <label for="feedback">How was the UI of our website?</label>
+            <input type="text" for="answer">
+            
+        </div>
+
+        <div data-role="fieldcontain" class="question">
+
+            <label for="feedback">Was it helpful?</label>
+            <input type="text" for="answer">
+            
+        </div>
+
+        <div data-role="fieldcontain" class="question">
+
+            <label for="feedback">How satisfied are you with our service?</label>
+            <select name="feedback" id="feedback" data-role="slider">
+                <option value="no">Not satisfied</option>
+                <option value="yes">Satisfied</option>
+            </select>
+            
+        </div>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <div data-role="footer">
+    <h4>Footer content</h4>
+  </div>
+</div>
+
+<div data-role="page" id="response">
+  <div data-role="header">
+    <h1>Feedback Response</h1>
+  </div>
+
+  <div data-role="content" id="response-content">
+    <!-- Feedback response will be displayed here -->
+  </div>
+
+  <div data-role="footer">
+    <h4>Footer content</h4>
+  </div>
+</div>
+
+
+</body>
+</html>

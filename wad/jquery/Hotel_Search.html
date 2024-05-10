@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hotel Search</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #home, #searchResults {
+            padding: 10px;
+        }
+        #searchForm label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        #searchForm input[type="text"], #searchForm input[type="date"], #searchForm input[type="number"], #searchForm input[type="submit"] {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        #searchForm input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        #searchResultsContent {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Home Page -->
+<div data-role="page" id="home">
+    <div data-role="header">
+        <h1>Hotel Search</h1>
+    </div>
+
+    <div data-role="content">
+        <form id="searchForm">
+            <div data-role="fieldcontain">
+                <label for="location">Location:</label>
+                <input type="text" name="location" id="location">
+            </div>
+            <div data-role="fieldcontain">
+                <label for="checkin">Check-In Date:</label>
+                <input type="date" name="checkin" id="checkin">
+            </div>
+            <div data-role="fieldcontain">
+                <label for="checkout">Check-Out Date:</label>
+                <input type="date" name="checkout" id="checkout">
+            </div>
+            <div data-role="fieldcontain">
+                <label for="guests">Number of Guests:</label>
+                <input type="number" name="guests" id="guests">
+            </div>
+            <input type="submit" value="Search">
+        </form>
+    </div>
+
+    <div data-role="footer">
+        <h4>Hotel Search App</h4>
+    </div>
+</div>
+
+<!-- Search Results Page -->
+<div data-role="page" id="searchResults">
+    <div data-role="header">
+        <a href="#home" class="ui-btn ui-icon-home ui-btn-icon-left">Home</a>
+        <h1>Search Results</h1>
+    </div>
+
+    <div data-role="content" id="searchResultsContent">
+        <!-- Search results will be displayed here -->
+    </div>
+
+    <div data-role="footer">
+        <h4>Hotel Search App</h4>
+    </div>
+</div>
+
+<script>
+    $(document).on("pagecreate", "#home", function () {
+        $("#searchForm").on("submit", function (e) {
+            e.preventDefault();
+
+            var location = $("#location").val();
+            var checkin = $("#checkin").val();
+            var checkout = $("#checkout").val();
+            var guests = $("#guests").val();
+
+            // Here you can perform AJAX request to search hotels based on the input criteria
+            // For demonstration purposes, let's just display a message with the input values
+            var searchResults = "Location: " + location + "<br>";
+            searchResults += "Check-In Date: " + checkin + "<br>";
+            searchResults += "Check-Out Date: " + checkout + "<br>";
+            searchResults += "Number of Guests: " + guests;
+
+            $("#searchResultsContent").html(searchResults);
+
+            // Navigate to search results page
+            $.mobile.changePage("#searchResults");
+        });
+    });
+</script>
+
+</body>
+</html>
